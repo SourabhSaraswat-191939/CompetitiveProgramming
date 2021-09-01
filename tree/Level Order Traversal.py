@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self, info): 
         self.info = info  
@@ -40,25 +41,20 @@ self.left (the left child of the node)
 self.right (the right child of the node)
 self.info (the value of the node)
 """
-def topView(root):
+def levelOrder(root):
     #Write your code here
-    d = {}
-    
-    def traverse(root,key,level):
-        if root:
-            if key not in d:
-                d[key] = [root, level]
-            elif d[key][1]>level:
-                d[key] = [root, level]
+    if root:
+        queue = []
+        queue.append(root)
+        while len(queue)>0:
+            print(queue[0].info, end=" ")
+            node = queue.pop(0)
             
-            traverse(root.left,key-1,level+1)
-            traverse(root.right,key+1,level+1)
-    traverse(root,0,0)
-    result = []
-    
-    for key in sorted(d):
-        print(d[key][0], end=" ")
-        
+            if node.left is not None:
+                queue.append(node.left)
+            if node.right is not None:
+                queue.append(node.right)
+                
 
 
 tree = BinarySearchTree()
@@ -69,4 +65,4 @@ arr = list(map(int, input().split()))
 for i in range(t):
     tree.create(arr[i])
 
-topView(tree.root)
+levelOrder(tree.root)

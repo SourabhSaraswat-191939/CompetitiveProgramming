@@ -46,10 +46,8 @@ def topView(root):
     
     def traverse(root,key,level):
         if root:
-            if key not in d:
-                d[key] = [root, level]
-            elif d[key][1]>level:
-                d[key] = [root, level]
+            d[key] = [root, level]
+            d[key] = [root, level]
             
             traverse(root.left,key-1,level+1)
             traverse(root.right,key+1,level+1)
@@ -58,7 +56,7 @@ def topView(root):
     
     for key in sorted(d):
         print(d[key][0], end=" ")
-        
+
 
 
 tree = BinarySearchTree()
@@ -70,3 +68,4 @@ for i in range(t):
     tree.create(arr[i])
 
 topView(tree.root)
+        
