@@ -1,11 +1,7 @@
 from collections import deque
 import time
 
-# rows = int(input("Enter number of rows => "))
 grid = []
-
-
-
 
 # For making heart shape
 
@@ -55,19 +51,6 @@ for i in range(n//2-1, n):
             grid[i].append('❤️')
             print('❤️', end=" ")
               
-        # condition for printing GFG
-        # elif i == n//2-1:
-            
-        #     if j == m//2-1 or j == m//2+1:
-        #         grid[i].append('G')
-        #         print('G', end=" ")
-        #     elif j == m//2:
-        #         grid[i].append('F')
-        #         print('F', end=" ")
-        #     else:
-        #         grid[i].append('G')
-        #         print(' ', end=" ")
-                  
         # condition for printing spaces
         else:
             grid[i].append(' ')
@@ -75,27 +58,7 @@ for i in range(n//2-1, n):
               
     print()
 
-
 # For making heart shape ends here
-
-
-# for row in grid:
-#     print(row)
-# print("Enter your shape => ")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 sr = len(grid)//2
 sc = len(grid[0])//2
@@ -103,16 +66,18 @@ newColor = '❤️'
 change = grid[sr][sc]
 height = len(grid)
 width = len(grid[0])
+
 def fill(grid,sr,sc,newColor):
     if (sr<0 or sc<0 or sr>=height or sc>=width or grid[sr][sc]==newColor or grid[sr][sc]!=change):
         return False
     grid[sr][sc]=newColor
     return True
+
+startTimer = time.time()    
 queue = deque()
 queue.append([sr,sc])
 grid[sr][sc]=newColor
 while queue:
-    # print("Run ",queue)
     out = queue.popleft()
     sr = out[0]
     sc = out[1]
@@ -126,15 +91,17 @@ while queue:
                     print(i if i!='' else ' ',end='')
                 print()
             time.sleep(0.3)
+
 # print(grid)
+# For printing the final heart
 for row in grid:
     for i in row:
         print(i if i!='' else ' ',end='')
     print()
 
-print("==================PROGRAM FINISHED==================")
+print(f"================== BFS PROGRAM FINISHED in %.2f Seconds =================="%(time.time()-startTimer))
 
-#Star pattern
+#Heart pattern for input
 #   * *   * * 
 # *     *     *
 # *          *
@@ -142,7 +109,7 @@ print("==================PROGRAM FINISHED==================")
 #     *   *   
 #       *   
 
-
+#Heart pattern using array
 # [
 # ['', '*', '*', '', '*', '*', '']
 # ['*', '', '', '*', '', '', '*']
