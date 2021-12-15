@@ -16,23 +16,30 @@ class Graph:
 
 
     def dfs(self,src,visited=dict()):
+        # print(visited)
         if src not in self.arr:
-            return
+            return False
+        # print("Src",src)
         visited[src] = True
-        for neighbour in self.adj[src]:
+        for neighbour in self.arr[src]:
             if neighbour not in visited:
-                self.dfs(neighbour,visited)
+                # print(visited)
+                return self.dfs(neighbour,visited)
+            else:
+                return True
 
     def connectedComponents(self,P,Q):
         visited = dict()
         
         for i in range(len(P)):
+            # print(P[i],Q[i])
             if P[i]==Q[i]:
                 continue
-            if P[i] not in visited:
-                self.dfs(i,visited)
+            elif P[i] not in visited:
+                if not self.dfs(P[i],visited):
+                    return False
                 
-            if Q[i] not in visited:
+            elif Q[i] not in visited:
                 return False
         return True
     # def dfs(self,src,visited=dict()):
@@ -68,7 +75,7 @@ for _ in range(T):
         g.add_edge(n1,n2)
     # g.printAll()
 
-    if g.connectedComponents(P,Q):
+    if not g.connectedComponents(P,Q):
         print("YES")
     else:
         print("NO")

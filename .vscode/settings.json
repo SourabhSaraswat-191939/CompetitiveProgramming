@@ -1,5 +1,9 @@
 {
     "files.associations": {
-        "time.h": "c"
+        "time.h": "c",
+        "vector": "cpp",
+        "iosfwd": "cpp",
+        "iterator": "cpp",
+        "iostream": "cpp"
     }
 }

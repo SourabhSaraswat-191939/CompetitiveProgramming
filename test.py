@@ -1,8 +1,5 @@
-z=10
-def c():
-    global z
-    z=2
-    print(z)
-
-c()
-print(z)
+marks = 10000
+  
+# perform division with 0
+a = marks / 0
+print(a)
