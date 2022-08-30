@@ -1,5 +1,6 @@
 import sys
 maxVal = sys.maxsize
+
 class Graph:
     def __init__(self,n) -> None:
         self.v = n

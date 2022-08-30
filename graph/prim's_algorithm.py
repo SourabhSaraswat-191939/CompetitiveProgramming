@@ -107,3 +107,8 @@ print("MST1 wins" if t1<t2 else "MST2 wins")
 # 3 1 8
 # 1 4 5
 # 4 2 7
+
+
+
+
+

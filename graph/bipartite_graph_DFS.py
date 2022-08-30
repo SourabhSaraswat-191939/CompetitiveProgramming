@@ -24,4 +24,5 @@ def isBipartite(graph):
     return True
 
 graph = [[3,4,6],[3,6],[3,6],[0,1,2,5],[0,7,8],[3],[0,1,2,7],[4,6],[4],[]]
+print(bipartiteDFS(graph))
 print(isBipartite(graph))

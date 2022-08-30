@@ -14,14 +14,17 @@ class Graph:
             self.adj[v2] = []
         self.adj[v2].append(v1)
 
-    def dfs(self, start,visited=dict()):
+    def dfs(self, start,order,i,visited=dict()):
         if start not in self.adj:
             return False
-        visited[start] = True
+        visited[start] = i
+        print(start)
+        order.append(start)
         for neighbour in self.adj[start]:
             if neighbour not in visited:
-                print(neighbour)
-                self.dfs(neighbour,visited)
+                # print(neighbour)
+                i=i+1
+                self.dfs(neighbour,order,i,visited)
 
 
 
@@ -36,8 +39,10 @@ for pair in edges:
 
 g.printAll()
 visited=dict()
-g.dfs(start,visited)
-    
+order = []
+g.dfs(start,order,0,visited)
+print(visited)
+print(order)
 if end in visited:
     print("true")
 else:
